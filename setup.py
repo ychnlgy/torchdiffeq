@@ -8,6 +8,6 @@ setuptools.setup(
     description="ODE solvers and adjoint sensitivity analysis in PyTorch.",
     url="https://github.com/rtqichen/torchdiffeq",
     packages=['torchdiffeq', 'torchdiffeq._impl'],
-    install_requires=['torch>=0.4.1'],
+    install_requires=['torch'],
     classifiers=(
         "Programming Language :: Python :: 3"),)
