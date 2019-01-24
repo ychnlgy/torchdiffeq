@@ -308,8 +308,8 @@ if __name__ == '__main__':
             # take first trajectory for visualization
             z0 = z0[0]
 
-            ts_pos = np.linspace(0., 2. * np.pi, num=2000)
-            ts_neg = np.linspace(-np.pi, 0., num=2000)[::-1].copy()
+            ts_pos = np.linspace(0., 4. * np.pi, num=2000)
+            ts_neg = np.linspace(-np.pi/2., 0., num=2000)[::-1].copy()
             ts_pos = torch.from_numpy(ts_pos).float().to(device)
             ts_neg = torch.from_numpy(ts_neg).float().to(device)
 
