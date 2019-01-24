@@ -339,5 +339,5 @@ if __name__ == '__main__':
             plt.scatter(samp_traj[:, 0], samp_traj[
                         :, 1], label='sampled data', s=3)
             plt.legend()
-            plt.savefig('./vis.png', dpi=500)
+            plt.savefig('./vis%d.png' % i, dpi=500)
             print('Saved visualization figure at {}'.format('./vis%d.png' % i))
