@@ -317,7 +317,10 @@ if __name__ == '__main__':
             zs_neg = odeint(func, z0, ts_neg)
 
             xs_pos = dec(zs_pos)
-            xs_neg = torch.flip(dec(zs_neg), dims=[0])
+
+            ds_neg = dec(zs_neg)
+            i = torch.arange(-1, -len(ds_neg)-1, -1)
+            xs_neg = ds_neg[i]
 
         xs_pos = xs_pos.cpu().numpy()
         xs_neg = xs_neg.cpu().numpy()
