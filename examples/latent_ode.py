@@ -324,18 +324,20 @@ if __name__ == '__main__':
 
         xs_pos = xs_pos.cpu().numpy()
         xs_neg = xs_neg.cpu().numpy()
-        orig_traj = orig_trajs[0].cpu().numpy()
-        samp_traj = samp_trajs[0].cpu().numpy()
 
-        plt.figure()
-        plt.plot(orig_traj[:, 0], orig_traj[:, 1],
-                 'g', label='true trajectory')
-        plt.plot(xs_pos[:, 0], xs_pos[:, 1], 'r',
-                 label='learned trajectory (t>0)')
-        plt.plot(xs_neg[:, 0], xs_neg[:, 1], 'c',
-                 label='learned trajectory (t<0)')
-        plt.scatter(samp_traj[:, 0], samp_traj[
-                    :, 1], label='sampled data', s=3)
-        plt.legend()
-        plt.savefig('./vis.png', dpi=500)
-        print('Saved visualization figure at {}'.format('./vis.png'))
+        for i in range(10):
+            orig_traj = orig_trajs[i].cpu().numpy()
+            samp_traj = samp_trajs[i].cpu().numpy()
+
+            plt.figure()
+            plt.plot(orig_traj[:, 0], orig_traj[:, 1],
+                     'g', label='true trajectory')
+            plt.plot(xs_pos[:, 0], xs_pos[:, 1], 'r',
+                     label='learned trajectory (t>0)')
+            plt.plot(xs_neg[:, 0], xs_neg[:, 1], 'c',
+                     label='learned trajectory (t<0)')
+            plt.scatter(samp_traj[:, 0], samp_traj[
+                        :, 1], label='sampled data', s=3)
+            plt.legend()
+            plt.savefig('./vis.png', dpi=500)
+            print('Saved visualization figure at {}'.format('./vis%d.png' % i))
