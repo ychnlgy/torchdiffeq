@@ -297,7 +297,7 @@ if __name__ == '__main__':
         with torch.no_grad():
             # sample from trajectorys' approx. posterior
             h = rec.initHidden().to(device)
-            for t in range(samp_trajs.size(1)):
+            for t in reversed(range(samp_trajs.size(1))):
                 obs = samp_trajs[:, t, :]
                 out, h = rec.forward(obs, h)
             qz0_mean, qz0_logvar = out[:, :latent_dim], out[:, latent_dim:]
@@ -309,7 +309,7 @@ if __name__ == '__main__':
             z0 = z0[0]
 
             ts_pos = np.linspace(0., 4. * np.pi, num=2000)
-            ts_neg = np.linspace(-np.pi/2., 0., num=2000)[::-1].copy()
+            ts_neg = np.linspace(-0.01 * np.pi., 0., num=1)[::-1].copy()
             ts_pos = torch.from_numpy(ts_pos).float().to(device)
             ts_neg = torch.from_numpy(ts_neg).float().to(device)
 
