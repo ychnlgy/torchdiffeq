@@ -319,7 +319,7 @@ if __name__ == '__main__':
             xs_pos = dec(zs_pos)
 
             ds_neg = dec(zs_neg)
-            i = torch.arange(-1, -len(ds_neg)-1, -1)
+            i = torch.arange(-1, -len(ds_neg)-1, -1).long().to(ds_neg.device)
             xs_neg = ds_neg[i]
 
         xs_pos = xs_pos.cpu().numpy()
