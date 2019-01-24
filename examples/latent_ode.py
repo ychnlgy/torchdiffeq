@@ -309,7 +309,7 @@ if __name__ == '__main__':
             z0 = z0[0]
 
             ts_pos = np.linspace(0., 4. * np.pi, num=2000)
-            ts_neg = np.linspace(-0.01 * np.pi, 0., num=1)[::-1].copy()
+            ts_neg = np.linspace(-1. * np.pi, 0., num=2000)[::-1].copy()
             ts_pos = torch.from_numpy(ts_pos).float().to(device)
             ts_neg = torch.from_numpy(ts_neg).float().to(device)
 
