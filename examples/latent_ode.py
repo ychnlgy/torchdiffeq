@@ -297,7 +297,7 @@ if __name__ == '__main__':
         with torch.no_grad():
             # sample from trajectorys' approx. posterior
             h = rec.initHidden().to(device)
-            for t in reversed(range(samp_trajs.size(1))):
+            for t in range(samp_trajs.size(1)):
                 obs = samp_trajs[:, t, :]
                 out, h = rec.forward(obs, h)
             qz0_mean, qz0_logvar = out[:, :latent_dim], out[:, latent_dim:]
